@@ -4,14 +4,27 @@ import Badge from "./Badge.astro";
 import LinkedInIcon from "./icons/LinkedIn.astro";
 import MailIcon from "./icons/Mail.astro";
 import SocialPill from "./SocialPill.astro";
+import GitHubIcon from "./icons/GitHub.astro";
+import DownloadIcon from "./icons/Download.astro";
+
+function copyToClipboard(text: string) {
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      alert("Correo electrónico copiado al portapapeles");
+    })
+    .catch((err) => {
+      console.error("Error al copiar al portapapeles: ", err);
+    });
+}
 ---
 
-<div class="max-w-xl">
+<div class="max-w-full">
   <div class="flex gap-4 mb-4">
     <img
       class="rounded-full size-16 shadow-lg"
       src="https://www.learningbubbles.net/utilizar-avatares-en-el-aula/img_1109/"
-      alt="{personalImageAlt}"
+      alt={personalImageAlt}
     />
     <a
       href="#"
@@ -22,32 +35,43 @@ import SocialPill from "./SocialPill.astro";
       <Badge>Disponible para contrato</Badge>
     </a>
   </div>
-  
+
   <h1
-    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark::text-white"
+    class="max-w-4xl text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
   >
-    Hey, soy Jhonatan🤗
+    Hey, soy Jhonatan Romero Pacheco
   </h1>
   <p
-    class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+    class="max-w-xl mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
   >
-    1 año de experiecia. <strong
-      >Desarrollando Web y Analisando Procesos.</strong
-    >De Lima Peru. Especializado en crear paginas entretenidas.
+    1 año de experiencia, <strong
+      >dentro del sector de desarrollo web y análisis de proyectos.</strong
+    > De Lima, Perú &#x1F1F5;&#x1F1EA;. Especializado en FrontEnd, Análisis de procesos
+    & Análisis de datos.
   </p>
 
   <nav class="flex flex-wrap gap-4 mt-8">
     <SocialPill href="#">
-      <MailIcon class="size-4" />
-      jhoromeropa@gmail.com
-    </SocialPill>
-    <SocialPill href="#">
       <LinkedInIcon class="size-4" />
       LinkedIn
     </SocialPill>
-    <!-- <SocialPill href="#">
-		<GitHubIcon class="size-4 md:size-6" />
-	    GitHub
-	</SocialPill> -->
+
+    <SocialPill href="https://github.com/Jhonatan192001">
+      <GitHubIcon class="size-4 md:size-6" />
+      GitHub
+    </SocialPill>
+
+    <!-- <SocialPill
+      href="jhoromeropa@gmail.com"
+      onClick={() => copyToClipboard("jhoromeropa@gmail.com")}
+    >
+      <MailIcon class="size-4" />
+      Copiar
+    </SocialPill> -->
+
+    <SocialPill href="../../public/Analisis chat bot.docx">
+      <DownloadIcon class="size-4 md:size-6" />
+      CV
+    </SocialPill>
   </nav>
 </div>

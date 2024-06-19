@@ -16,12 +16,18 @@ import ProfileCheckIcon from "../components/icons/ProfileCheck.astro";
   description="Buscando trabajo."
 >
   <main class="px-4">
-    <SectionContainer class="py-16 md:py-36s" />
-    <Hero />
+    <SectionContainer class="py-16 md:py-">
+      <Hero>
+        <slot />
+      </Hero>
+    </SectionContainer>
+
     <SectionContainer>
       <div class="space-y-24">
         <SectionContainer id="experiencia">
-          <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+          <h2
+            class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+          >
             <BriefCaseIcon class="size-8" />
             Expreciencia Laboral
           </h2>
@@ -29,22 +35,25 @@ import ProfileCheckIcon from "../components/icons/ProfileCheck.astro";
         </SectionContainer>
 
         <SectionContainer id="proyectos">
-          <h2 class="flex items-center text-3xl font-semibold mb-6 gap-x-3 text-black/80 dark:text-white">
+          <h2
+            class="flex items-center text-3xl font-semibold mb-6 gap-x-3 text-black/80 dark:text-white"
+          >
             <CodeIcon class="size-7" />
             Proyectos
           </h2>
           <Projects />
         </SectionContainer>
-		<SectionContainer id="sobre-mi">
-			<h2
-			  class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
-			>
-			  <ProfileCheckIcon class="size-8" />
-			  Sobre mí
-			</h2>
-			<AboutMe />
-		</SectionContainer>
-	</SectionContainer>
+
+        <SectionContainer id="sobre-mi">
+          <h2
+            class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+          >
+            <ProfileCheckIcon class="size-8" />
+            Sobre mí
+          </h2>
+          <AboutMe />
+        </SectionContainer>
       </div>
+    </SectionContainer>
   </main>
 </Layout>
