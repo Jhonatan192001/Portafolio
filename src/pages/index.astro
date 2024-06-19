@@ -1,83 +1,50 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Badge from '../components/Badge.astro';
-import SocialPill from '../components/SocialPill.astro';
-import Experiencie from '../components/Experiencie.astro';
-import SectionContainer from '../components/SectionContainer.astro';
-import Projects from '../components/Projects.astro';
+import Layout from "../layouts/Layout.astro";
+import AboutMe from "../components/AboutMe.astro";
+import Hero from "../components/Hero.astro";
+import Experiencie from "../components/Experiencie.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Projects from "../components/Projects.astro";
 
-import LinkedInIcon from '../components/icons/LinkedIn.astro';
-import GitHubIcon from '../components/icons/GitHub.astro';
-import BriefCaseIcon from '../components/icons/BriefCase.astro';
-import CodeIcon from '../components/icons/Code.astro';
-import MailIcon from '../components/icons/Mail.astro';
+import BriefCaseIcon from "../components/icons/BriefCase.astro";
+import CodeIcon from "../components/icons/Code.astro";
+import ProfileCheckIcon from "../components/icons/ProfileCheck.astro";
 ---
 
 <Layout
-title="Portafolio de Jhonatan - Desarrollador web y Analista de Procesos con 1 año de experiecia"
+  title="Portafolio de Jhonatan - Desarrollador web y Analista de Procesos con 1 año de experiecia"
   description="Buscando trabajo."
 >
-	<main class="px-4">
-		<SectionContainer class="py-44 pb-32">
-			<img
-			  class="rounded-full size-14 mb-8"
-			  src="https://www.learningbubbles.net/utilizar-avatares-en-el-aula/img_1109/"
-			  alt="logo"
-			/>
-			<h1
-			  class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36s" />
+    <Hero />
+    <SectionContainer>
+      <div class="space-y-24">
+        <SectionContainer id="experiencia">
+          <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+            <BriefCaseIcon class="size-8" />
+            Expreciencia Laboral
+          </h2>
+          <Experiencie />
+        </SectionContainer>
+
+        <SectionContainer id="proyectos">
+          <h2 class="flex items-center text-3xl font-semibold mb-6 gap-x-3 text-black/80 dark:text-white">
+            <CodeIcon class="size-7" />
+            Proyectos
+          </h2>
+          <Projects />
+        </SectionContainer>
+		<SectionContainer id="sobre-mi">
+			<h2
+			  class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
 			>
-			  Hey, soy Jhonatan
-			  <a
-				href="#"
-				target="_blank"
-				rel="noopener"
-				class="flex justify-center items-center"
-			  >
-				<Badge>Disponible para contrato</Badge>
-			  </a>
-			</h1>
-			<h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[550px]">
-			  <span>1 año de experiecia.</span>
-			  <span class="text-yellow-200/100"
-				>Desarrollando Web y Analisando Procesos.</span
-			  >
-			  <span class="text-red-500/100">De Lima Peru.</span>
-			  <span class="opacity-85"
-				>De Lima Peru. Especializado en crear paginas entretenidas.</span
-			  >
+			  <ProfileCheckIcon class="size-8" />
+			  Sobre mí
 			</h2>
-	  
-			<nav class="flex gap-4 mt-8 flex-wrap">
-			  <SocialPill href="#">
-				<LinkedInIcon class="size-4 md:size-6" />
-				LinkedIn
-			  </SocialPill>
-			  <SocialPill href="#">
-				<GitHubIcon class="size-4 md:size-6" />
-				GitHub
-			  </SocialPill>
-			  <SocialPill href="#">
-				<MailIcon class="size-4 md:size-6" />
-				jhoromeropa@gmail.com
-			  </SocialPill>
-			</nav>
-		  </SectionContainer>
-	  
-		  <SectionContainer id="experiencia">
-			<h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
-			  <BriefCaseIcon class="size-7" />
-			  Expreciencia Laboral
-			</h2>
-			<Experiencie />
-		  </SectionContainer>
-	  
-		  <SectionContainer id="experiencia">
-			<h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
-			  <CodeIcon class="size-7" />
-			  Proyectos
-			</h2>
-			<Projects />
-		  </SectionContainer>
-	</main>
+			<AboutMe />
+		</SectionContainer>
+	</SectionContainer>
+      </div>
+  </main>
 </Layout>
