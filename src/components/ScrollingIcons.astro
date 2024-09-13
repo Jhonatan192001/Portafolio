@@ -1,0 +1,38 @@
+---
+const { icons } = Astro.props;
+---
+
+<div class="scrolling-icons-container overflow-hidden w-full">
+  <div class="scrolling-icons-content flex animate-scroll">
+    {icons.map((Icon) => (
+      <div class="icon-wrapper flex-shrink-0 mx-4">
+        <Icon class="w-12 h-12" />
+      </div>
+    ))}
+    {/* Duplicate icons for seamless loop */}
+    {icons.map((Icon) => (
+      <div class="icon-wrapper flex-shrink-0 mx-4">
+        <Icon class="w-12 h-12" />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-80%);
+    }
+  }
+
+  .scrolling-icons-content {
+    animation: scroll 17s linear infinite;
+  }
+
+  .scrolling-icons-content:hover {
+    animation-play-state: paused;
+  }
+</style>

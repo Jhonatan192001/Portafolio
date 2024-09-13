@@ -7,71 +7,58 @@ import SocialPill from "./SocialPill.astro";
 import GitHubIcon from "./icons/GitHub.astro";
 import DownloadIcon from "./icons/Download.astro";
 
-function copyToClipboard(text: string) {
-  navigator.clipboard
-    .writeText(text)
-    .then(() => {
-      alert("Correo electrónico copiado al portapapeles");
-    })
-    .catch((err) => {
-      console.error("Error al copiar al portapapeles: ", err);
-    });
-}
 ---
 
 <div class="max-w-full">
   <div class="flex gap-4 mb-4">
     <img
-      class="rounded-full size-16 shadow-lg"
+      class="rounded-full w-16 h-16 shadow-lg"
       src="https://www.learningbubbles.net/utilizar-avatares-en-el-aula/img_1109/"
       alt={personalImageAlt}
+      width="64"
+      height="64"
     />
     <a
-      href="#"
+      href="https://www.linkedin.com/in/jhonatan-rp/"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn de Jhonatan Romero"
       class="flex items-center transition md:justify-center md:hover:scale-105"
     >
       <Badge>Disponible para contrato</Badge>
     </a>
+
   </div>
 
-  <h1
-    class="max-w-4xl text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
-  >
-    Hey, soy Jhonatan Romero Pacheco
+  <h1 class="max-w-4xl text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
+    ¡Hola! Soy <span class="text-yellow-500">Jhonatan Romero Pacheco</span>
   </h1>
-  <p
-    class="max-w-xl mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
-  >
-    1 año de experiencia, <strong
-      >dentro del sector de desarrollo web y análisis de proyectos.</strong
-    > De Lima, Perú &#x1F1F5;&#x1F1EA;. Especializado en FrontEnd, Análisis de procesos
-    & Análisis de datos.
+  <p class="max-w-xl mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300">
+    Tengo <strong>1 año de experiencia</strong> en <strong>desarrollo web</strong> y <strong>análisis de proyectos</strong>. Vivo en <strong>Lima, Perú</strong> &#x1F1F5;&#x1F1EA;. 
+    Mi especialización está en <strong>Front-End Development</strong> y <strong>Análisis de Procesos</strong>.
+    <br><br>
+    Me apasiona <strong>transformar ideas en interfaces digitales</strong> intuitivas y eficientes, con un enfoque en la <strong>experiencia del usuario</strong> y la <strong>optimización de flujos de trabajo</strong>.
   </p>
 
   <nav class="flex flex-wrap gap-4 mt-8">
-    <SocialPill href="#">
-      <LinkedInIcon class="size-4" />
-      LinkedIn
+    <SocialPill href="https://www.linkedin.com/in/jhonatan-rp/" aria-label="LinkedIn de Jhonatan Romero">
+      <LinkedInIcon class="w-6 h-6" /> LinkedIn
     </SocialPill>
-
-    <SocialPill href="https://github.com/Jhonatan192001">
-      <GitHubIcon class="size-4 md:size-6" />
-      GitHub
+    
+    <SocialPill href="https://github.com/Jhonatan192001" aria-label="GitHub de Jhonatan Romero">
+      <GitHubIcon class="w-6 h-6" /> GitHub
     </SocialPill>
-
-    <!-- <SocialPill
-      href="jhoromeropa@gmail.com"
-      onClick={() => copyToClipboard("jhoromeropa@gmail.com")}
+  
+    <SocialPill
+      href="#"
+      isCopyEmail={true}
+      aria-label="Copiar correo"
     >
-      <MailIcon class="size-4" />
-      Copiar
-    </SocialPill> -->
-
-    <SocialPill href="../../public/Analisis chat bot.docx">
-      <DownloadIcon class="size-4 md:size-6" />
-      CV
+      <MailIcon class="w-6 h-6" /> Correo
+    </SocialPill>
+  
+    <SocialPill href="../../public/CV-ROMERO PACHECO JHONATAN JHEFERSSON.pdf" aria-label="Descargar CV">
+      <DownloadIcon class="w-6 h-6" /> CV
     </SocialPill>
   </nav>
 </div>

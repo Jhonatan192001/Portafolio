@@ -1,9 +1,52 @@
+---
+const { href, ariaLabel, isCopyEmail = false } = Astro.props;
+---
+
 <a
-  {...Astro.props}
-  class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 group max-w-fit hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+  href={href}
+  class:list={[
+    "inline-flex items-center justify-center gap-2 px-4 py-2 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 group max-w-fit hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black",
+    { "copy-email-btn": isCopyEmail }
+  ]}
   target="_blank"
   rel="noopener noreferrer"
   role="link"
+  aria-label={ariaLabel}
 >
   <slot />
 </a>
+
+{isCopyEmail && (
+  <div id="notification" class="fixed bottom-4 right-4 bg-yellow-500 text-white px-4 py-2 rounded hidden">
+    Correo copiado
+  </div>
+)}
+
+<script>
+  function copyToClipboard(text) {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        const notification = document.getElementById('notification');
+        if (notification) {
+          notification.classList.remove('hidden');
+          setTimeout(() => {
+            notification.classList.add('hidden');
+          }, 3000);
+        }
+      })
+      .catch((err) => {
+        console.error('Error al copiar al portapapeles: ', err);
+      });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyEmailBtn = document.querySelector('.copy-email-btn');
+    if (copyEmailBtn) {
+      copyEmailBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        copyToClipboard('jhoromeropa@gmail.com');
+      });
+    }
+  });
+</script>

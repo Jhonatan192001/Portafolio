@@ -1,41 +1,63 @@
 ---
-import NextJS from "./icons/NextJS.astro";
 import Tailwind from "./icons/Tailwind.astro";
 import GitHub from "./icons/GitHub.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
+import ReactJS from "./icons/ReactJS.astro";
+import NodeJS from "./icons/NodeJS.astro";
+import ExpressJS from "./icons/ExpressJS.astro";
+import MySQL from "./icons/Mysql.astro";
 
 const TAGS = {
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: NextJS,
-  },
-
   TAILWIND: {
-    name: "Tailwind.css",
+    name: "TailwindCSS",
     class: "bg-[#003159] text-white",
     icon: Tailwind,
+  },
+
+  ReactJS: {
+    name: "ReactJS",
+    class: "bg-[#003159] text-white",
+    icon: ReactJS,
+  },
+
+  NODEJS: {
+    name: "NodeJS",
+    class: "bg-[#095700] text-white",
+    icon: NodeJS,
+  },
+
+  EXPRESSJS: {
+    name: "ExpressJS",
+    class: "bg-[#232323] text-white",
+    icon: ExpressJS,
+  },
+
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-[#6a9cdf] text-white",
+    icon: MySQL,
   },
 };
 
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: "Ventas de servicios de seguridad OST",
     description:
-      "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
-    image: "",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Desarrollo de una página web enfocada en la presentación de servicios de seguridad privada de viviendas y otros. El sitio ofrece una interfaz intuitiva, diseño responsive y funcionalidades como solicitud de cotizaciones y formularios de contacto personalizados, mejorando la accesibilidad y visibilidad de la empresa en línea. Creado desde cero con React, Tailwind CSS y Framer Motion.",
+    link: "",
+    github: "https://github.com/Jhonatan192001/LandingPage_ost",
+    image: "../../public/projects/lpCamaras.png",
+    tags: [TAGS.TAILWIND, TAGS.ReactJS],
   },
   {
-    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    title: "CRM de servicios de seguridad OST",
     description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://adventjs.dev",
-    image: "",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Desarrollo de un sistema CRM personalizado para gestionar clientes, contratos y operaciones de una empresa de seguridad, etc. El proyecto incluye la automatización del seguimiento de clientes, la generación de reportes y la integración con bases de datos para optimizar la gestión interna y mejorar la eficiencia operativa y más. Creada desde cero con NodeJS, Express, Mysql, React y Tailwind CSS.",
+    link: "",
+    github: "https://github.com/Jhonatan192001/crmOST",
+    image: "../../public/projects/cmrCamaras.png",
+    tags: [TAGS.NODEJS, TAGS.EXPRESSJS, TAGS.MYSQL, TAGS.ReactJS, TAGS.TAILWIND],
   },
 ];
 ---
