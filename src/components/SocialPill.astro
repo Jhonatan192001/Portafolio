@@ -23,7 +23,7 @@ const { href, ariaLabel, isCopyEmail = false } = Astro.props;
 )}
 
 <script>
-  function copyToClipboard(text) {
+  function copyToClipboard(text: string) {
     navigator.clipboard
       .writeText(text)
       .then(() => {
